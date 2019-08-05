@@ -22,7 +22,7 @@ Use any HTTP request simulation tool (Postman, Insomnia, etc.). Pass the necessa
 
 ## Versioning
 
-We use [GitHub](https://code.csulb.edu) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [GitHub](https://code.csulb.edu) for versioning. 
 
 ## Authors
 
