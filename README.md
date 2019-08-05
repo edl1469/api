@@ -13,6 +13,7 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Running the tests
 
+Use any HTTP request simulation tool (Postman, Insomnia, etc.). Pass the necessary parameters, including the API Token to test the call. You should get back a true or false response depending on the accuracy of the data submitted.
 
 ## Built With
 
