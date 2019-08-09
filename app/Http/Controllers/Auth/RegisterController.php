@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Invitation;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 
 class RegisterController extends Controller
@@ -70,10 +72,31 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
         $apiToken = $user->api_token;
+        
         return $apiToken;
     }
     protected function response()
     {
         return response()->json($user);
+    }
+
+    public function requestInvitation() {
+        return view('auth.request');
+    }
+
+    public function showRegistrationForm(Request $request)
+    {
+        $invitation_token = $request->get('invitation_token');
+        $invitation = Invitation::where('invitation_token', $invitation_token)->firstOrFail();
+        $email = $invitation->email;
+
+        return view('auth.register', compact('email'));
+    }
+
+    public function registered(Request $request, $user)
+    {
+        $invitation = Invitation::where('email', $user->email)->firstOrFail();
+        $invitation->registered_at = $user->created_at;
+        $invitation->save();
     }
 }
