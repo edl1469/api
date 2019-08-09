@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header"><h1>CAMPUS API REPOSITORY (CAR)</h1></div>
 
-                    <div class="card-body"><div class="alert alert-light"> In order to gain access to any API available, please click the Register button below to request an Invitation Token.</div>
+                    <div class="card-body"><h2>Campus Authentication API</h2><div class="alert alert-light"> In order to gain access to the Campus Authentication API, please click the Register button below to request an Invitation Token.</div>
 
                     @if (Route::has('login'))
                             <div class="align-content-lg-center">
